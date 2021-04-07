@@ -12,4 +12,8 @@ export const FETCH_CASES = {
     message: 'error',
     userMessage: 'Ha habido un error'
   },
+  missingQuery: {
+    message: 'missingQuery',
+    userMessage: 'No se ha buscado nada, vamos busca crack.'
+  }
 }

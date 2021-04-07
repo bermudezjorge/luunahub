@@ -31,6 +31,12 @@ const Logo = styled.h1`
   }
 `
 
+const links = [
+  { href: '/compare', text: 'Comparar'},
+  { href: '/favs', text: 'Favoritos'},
+  { href: '/search', text: 'Buscar'},
+]
+
 const Header = () => (
   <header>
     <Nav>
@@ -39,21 +45,13 @@ const Header = () => (
       >
         <Logo>LuunaHub</Logo>
       </StyledLink>
-      <StyledLink
-        href="/compare"
-      >
-        Comparar
-      </StyledLink>
-      <StyledLink
-        href="/search"
-      >
-        Buscador
-      </StyledLink>
-      <StyledLink
-        href="/favs"
-      >
-        Favoritos
-      </StyledLink>
+      {links.map(({ href, text }) => (
+        <StyledLink
+          href={href}
+        >
+          {text}
+        </StyledLink>
+      ))}
     </Nav>
   </header> 
 )

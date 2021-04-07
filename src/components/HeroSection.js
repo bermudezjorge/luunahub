@@ -1,13 +1,22 @@
+import { useRouter } from 'next/router'
 import styled from 'styled-components'
 
+import ButtonLink from '@components/ButtonLink'
+
 const Section = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   background: linear-gradient(to right, #3483fe, #2da3fb);
-  border-radius: 1rem;
-  margin: 1rem 2rem;
   padding: 2rem 0;
+  border-radius: 0 0 1rem 1rem;
+  margin-bottom: 2rem;
+
+  @media (min-width: 768px) {
+    margin: 1rem 2rem;
+    border-radius: 1rem;
+  }
 `
 
 const Title = styled.h1`
@@ -24,9 +33,16 @@ const Title = styled.h1`
 `
 
 const HeroSection = ({ text }) => {
+  const {pathname} = useRouter()
+
   return (
     <Section>
       <Title>{text}</Title>
+      {pathname === "/" ? (
+        <ButtonLink />
+        ) : (
+        <ButtonLink />
+      )}
     </Section>
   )
 }

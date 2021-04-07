@@ -1,6 +1,14 @@
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
+import dynamic from 'next/dynamic'
 
-import Layout from "@components/Layout"
+const TopProgressBar = dynamic(
+  () => {
+    return import("@components/TopProgressBar");
+  },
+  { ssr: false },
+);
+
+import "nprogress/nprogress.css";
 
 const GlobalStyle = createGlobalStyle`
   *, *::before, *::after{
@@ -38,6 +46,7 @@ export default function MyApp({ Component, pageProps }) {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
         <Container>
+          <TopProgressBar />
           <Component {...pageProps} />
         </Container>
     </ThemeProvider>

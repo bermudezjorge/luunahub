@@ -20,18 +20,19 @@ export default function Layout({
   title = 'LuunaHub',
 }) {
   return (
-    <div>
+    <>
       <Head>
         <title>{title}</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
+      
       <Header />
       <HeroSection text="Busca repos y usuarios. Y hasta se pueden comparar?" />
       <MaxWidth>
         {children}
         <Footer />
       </MaxWidth>
-    </div>
+    </>
   )
 }

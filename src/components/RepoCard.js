@@ -8,6 +8,10 @@ const Container = styled.div`
   border: 1px solid #dee4fb;
   border-radius: 7px;
   padding: 0.5rem;
+
+  &:hover {
+    border-color: ${({theme}) => theme.primaryColor};
+  }
 `
 
 const OwnerLayout = styled.div`
@@ -91,7 +95,7 @@ const RepoCard = ({ data }) => (
     <OwnerLayout>
       <Avatar src={data.ownerAvatar} />
       <Name>{data.ownerName}</Name>
-      <ExternalLink target="_blank" href={data.gitUrl} rel="noopener noreferrer">
+      <ExternalLink target="_blank" href={data.githubUrl} rel="noopener noreferrer">
         Visitar Github
       </ExternalLink>
     </OwnerLayout>

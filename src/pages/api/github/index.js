@@ -36,7 +36,7 @@ export const searchRepo = async (query, options) => {
         open_issues: repo.open_issues,
         license: repo.license.name,
         homepage: repo.homepage,
-        gitUrl: repo.git_url,
+        githubUrl: repo.svn_url,
         ownerName: repo.owner.login,
         ownerAvatar: repo.owner.avatar_url
       }
@@ -50,21 +50,24 @@ export const searchRepo = async (query, options) => {
 }
 
 export default async (req, res) => {
-  const {...params} = req.query
+  const { params } = req.query
 
-  const searchTerm = params.q
+  if(params.hasOwnProperty('q')) {
+    const searchTerm = params.q
+    const options = {
+      sort: params.sort,
+      per_page: params.per_page,
+      page: params.page
+    }
 
-  const options = {
-    sort: params.sort,
-    per_page: params.per_page,
-    page: params.page
-  }
+    try {
+      const data = await searchRepo(searchTerm, options)
+      res.status(200).json({ data })
 
-  try {
-    const data = await searchRepo(searchTerm, options)
-    res.status(200).json({ data })
-
-  } catch (err) {
-    res.status(400).json({ error: err.message });
+    } catch (err) {
+      res.status(400).json({ error: err.message });
+    }
+  } else {
+    res.status(200).json({ error: 'No se ha buscado nada.'})
   }
 }

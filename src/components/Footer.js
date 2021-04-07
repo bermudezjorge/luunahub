@@ -12,7 +12,7 @@ const Container = styled.footer`
   }
 `
 
-const FooterText = styled.h3`
+const Text = styled.h4`
   font-family: Poppins;
   color: gray;
   font-size: 1rem;
@@ -29,7 +29,7 @@ const Footer = () => (
       <Note>Pequeña nota: solo 10 peticiones por minuto.</Note>
       <Note>Luunahub soon a  Luuna's web app (soon unicorn company), well if they hire Jorge.</Note>
     </div>
-    <FooterText>Hi, just be happy.</FooterText>
+    <Text>Hi, just be happy.</Text>
   </Container>
 )
 export default Footer
