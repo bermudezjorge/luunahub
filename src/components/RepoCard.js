@@ -11,43 +11,46 @@ const Container = styled.div`
 `
 
 const OwnerLayout = styled.div`
-  width: 30%;
+  width: 35%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+`
+
+const RepoLayout = styled.div`
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 0 0.5rem;
+  padding-left: 2rem;
 `
 
 const Avatar = styled.img`
-  width: 100%;
+  width: 80%;
   border-radius: 50%;
+
+  @media (min-width: 768px) {
+    width: 80%;
+  }
 `
 
 const Name = styled.h3`
   font-family: Manrope;
   color: #26bff7;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 900;
   margin: 0.3rem 0;
-
+  word-break: break-word;
 `
 
 const ExternalLink = styled.a`
   font-family: Poppins;
   font-weight: 500;
   color: #264c5a;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   margin: 0.3rem 0;
-`
-
-const RepoLayout = styled.div`
-  width: 70%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 0.5rem;
-  padding-left: 2rem;
 `
 
 const Description = styled.p`
@@ -76,8 +79,8 @@ const DataSpan = styled.span`
 
 const Data = styled.p`
   font-family: Manrope;
-  font-weight: 100;
-  font-size: 0.7rem;
+  font-weight: 500;
+  font-size: 0.8rem;
   margin: 0;
   color: #000;
 `

@@ -1,17 +1,18 @@
 import Head from 'next/head'
 import styled from 'styled-components'
 
-import StyledLink from '@components/StyledLink'
+import HeroSection from '@components/HeroSection'
+import Header from '@components/Header'
+import Footer from '@components/Footer'
 
-const Nav = styled.nav`
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  justify-content: space-around;
-  padding: 1rem 0;
-  background-color: #f6f7fb;
+const MaxWidth = styled.div`
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  @media (min-width: 768px) {
+    padding: 0;
+  }
 `
 
 export default function Layout({
@@ -25,29 +26,12 @@ export default function Layout({
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <header>
-        <Nav>
-          <StyledLink
-            href="/compare"
-          >
-            Comparar
-          </StyledLink>
-          <StyledLink
-            href="/search"
-          >
-            Buscador
-          </StyledLink>
-          <StyledLink
-            href="/favs"
-          >
-            Favoritos
-          </StyledLink>
-        </Nav>
-      </header>
-
-      {children}
-
-      <footer>{'I`m here to stay'}</footer>
+      <Header />
+      <HeroSection text="Busca repos y usuarios. Y hasta se pueden comparar?" />
+      <MaxWidth>
+        {children}
+        <Footer />
+      </MaxWidth>
     </div>
   )
 }

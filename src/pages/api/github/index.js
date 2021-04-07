@@ -1,26 +1,18 @@
 import axios from 'axios'
 
 import { FETCH_CASES } from '@util/contants'
+import {DEFAULT_OPTIONS, createOptions} from '@util/github_api_util'
 
-const API = 'https://api.github.com'
-
-const DEFAULT_OPTIONS = {
-  per_page: 1,
-  page: 0,
-}
-
-//concatenate api search options
-const createOptions = options => (
-    Object.entries(options)
-    .reduce((optionsParatemers, option) => 
-        optionsParatemers += `&${option[0]}=${option[1]}`
-    , '')
-)
+const API = 'https://api.github.com/search/repositories'
 
 export const searchRepo = async (query, options) => {
-  //execute get and search using a generating endpoint string
   try{
-    const { data } = await axios.get(`${API}/search/repositories?q=${query}${createOptions({...DEFAULT_OPTIONS, ...options})}`)
+    //merge options to defauls options
+    const mergeOptions = {...DEFAULT_OPTIONS, ...options}
+
+    const API_URL = `${API}?q=${query}${createOptions(mergeOptions)}`
+
+    const { data } = await axios.get(API_URL)
 
     //check if api per minute rate limit has exceed
     if(data.hasOwnProperty('message')) {
@@ -51,11 +43,11 @@ export const searchRepo = async (query, options) => {
     })
 
     return filterData
+
   } catch (err) {
     return { message: FETCH_CASES.error.message, err: err.message }
   }
 }
-
 
 export default async (req, res) => {
   const {...params} = req.query
@@ -63,6 +55,7 @@ export default async (req, res) => {
   const searchTerm = params.q
 
   const options = {
+    sort: params.sort,
     per_page: params.per_page,
     page: params.page
   }
@@ -75,6 +68,3 @@ export default async (req, res) => {
     res.status(400).json({ error: err.message });
   }
 }
-
-
-// "message": "Not Found"

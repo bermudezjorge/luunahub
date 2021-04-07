@@ -4,10 +4,15 @@ import RepoCard from '@components/RepoCard'
 import { FETCH_CASES } from '@util/contants'
 
 const Container = styled.div`
+  width: 100%;
   display: grid;
   grid-template-columns: 100%;
-  grid-gap: 1rem 0;
-  margin-top: 3rem;
+  grid-gap: 1rem;
+  margin: 3rem 0;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 50% 50%;
+  }
 `
 
 const FetchContainer = ({ data }) => {

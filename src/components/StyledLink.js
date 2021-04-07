@@ -3,10 +3,17 @@ import Link from 'next/link'
 import styled from 'styled-components'
 
 const A = styled.a`
-  font-family: Poppins;
-  font-weight: 500;
-  color: ${({active}) => active ? '#2babfa' : '#44568b'};
-  font-size: 1rem;
+  font-family: Manrope;
+  font-weight: 900;
+  color: ${(props) => props.active ? props.theme.primaryColor : '#44568b'};
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    font-size: 1rem;
+  }
 `
 
 const StyledLink = ({ href, children }) => {

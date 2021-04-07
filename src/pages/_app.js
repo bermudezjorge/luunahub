@@ -25,13 +25,12 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const theme = {
-
+  primaryColor: '#2babfa'
 }
 
 const Container = styled.div`
   width: 100%;
   min-height: 100vh;
-  padding: 2rem 1rem;
 `
 
 export default function MyApp({ Component, pageProps }) {
