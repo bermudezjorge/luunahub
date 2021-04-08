@@ -2,8 +2,10 @@ import { useRouter } from 'next/router'
 import styled from 'styled-components'
 
 import ButtonLink from '@components/ButtonLink'
+import SearchForm from '@components/SearchForm'
 
 const Section = styled.div`
+  height: 200px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -32,16 +34,17 @@ const Title = styled.h1`
   }
 `
 
-const HeroSection = ({ text }) => {
+const HeroSection = ({ text, setSearch, setSearchType }) => {
   const {pathname} = useRouter()
 
   return (
     <Section>
-      <Title>{text}</Title>
+      <Title>Busca repos y usuarios</Title>
+      
       {pathname === "/" ? (
         <ButtonLink />
         ) : (
-        <ButtonLink />
+        <SearchForm setSearch={setSearch} searchType={searchType} setSearchType={setSearchType} />
       )}
     </Section>
   )

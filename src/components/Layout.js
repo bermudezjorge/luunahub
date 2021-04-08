@@ -18,6 +18,9 @@ const MaxWidth = styled.div`
 export default function Layout({
   children,
   title = 'LuunaHub',
+  setSearch,
+  searchType,
+  setSearchType
 }) {
   return (
     <>
@@ -28,7 +31,11 @@ export default function Layout({
       </Head>
       
       <Header />
-      <HeroSection text="Busca repos y usuarios. Y hasta se pueden comparar?" />
+      <HeroSection
+        setSearch={setSearch}
+        searchType={searchType}
+        setSearchType={setSearchType}
+      />
       <MaxWidth>
         {children}
         <Footer />

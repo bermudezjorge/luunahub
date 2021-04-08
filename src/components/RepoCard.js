@@ -93,9 +93,9 @@ const Data = styled.p`
 const RepoCard = ({ data }) => (
   <Container>
     <OwnerLayout>
-      <Avatar src={data.ownerAvatar} />
-      <Name>{data.ownerName}</Name>
-      <ExternalLink target="_blank" href={data.githubUrl} rel="noopener noreferrer">
+      <Avatar src={data.owner.avatar_url} />
+      <Name>{data.owner.login}</Name>
+      <ExternalLink target="_blank" href={data.owner.html_url} rel="noopener noreferrer">
         Visitar Github
       </ExternalLink>
     </OwnerLayout>
@@ -108,10 +108,12 @@ const RepoCard = ({ data }) => (
         <ExternalLink target="_blank" href={data.homepage} rel="noopener noreferrer">
           Visitar Pagina web
         </ExternalLink>
+        <ExternalLink target="_blank" href={data.html_url} rel="noopener noreferrer">
+          Visitar Github Page
+        </ExternalLink>
         <Data><DataSpan>Forks:</DataSpan> {data.forks}</Data>
         <Data><DataSpan>Stars:</DataSpan> {data.stars}</Data>
         <Data><DataSpan>Open Issues:</DataSpan> {data.open_issues}</Data>
-        <Data><DataSpan>License:</DataSpan> {data.license}</Data>
       </DataLayout>
     </RepoLayout>
   </Container>
