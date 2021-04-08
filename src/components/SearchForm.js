@@ -4,6 +4,11 @@ import styled from 'styled-components'
 const Form = styled.form`
   position: absolute;
   bottom: -20px;
+  transition: 0.3s all ease;
+
+  &:focus-within {
+    bottom: -15px;
+  }
 `
 
 const Container = styled.label`
@@ -20,7 +25,6 @@ const Container = styled.label`
 
   &:focus-within {
     box-shadow: 0px 7px 20px -5px #2191b9d4;
-    bottom: -15px;
     opacity: 1;
   }
 `
@@ -93,7 +97,8 @@ const SearchForm = ({ setSearch, searchType, setSearchType }) => {
     setSearchType(prevSearchType => (
       prevSearchType === 'repos' ? 'users' : 'repos'
     ))
-
+    
+    setText('')
     setSearch('')
   }
   

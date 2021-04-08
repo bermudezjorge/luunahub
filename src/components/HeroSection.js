@@ -34,7 +34,7 @@ const Title = styled.h1`
   }
 `
 
-const HeroSection = ({ text, setSearch, setSearchType }) => {
+const HeroSection = ({ setSearch, searchType, setSearchType }) => {
   const {pathname} = useRouter()
 
   return (
