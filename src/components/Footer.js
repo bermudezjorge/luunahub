@@ -15,7 +15,7 @@ const Container = styled.footer`
 const Text = styled.h4`
   font-family: Poppins;
   color: gray;
-  font-size: 1rem;
+  font-size: 3rem;
   text-align: center;
 
   @media (min-width: 768px) {

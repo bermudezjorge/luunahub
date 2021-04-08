@@ -24,7 +24,7 @@ const Section = styled.div`
 const Title = styled.h1`
   font-family: Poppins;
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
   text-align: center;
   padding: 0 1rem;

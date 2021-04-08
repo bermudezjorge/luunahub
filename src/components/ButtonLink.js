@@ -14,6 +14,7 @@ const AasButton = styled.a`
   font-weight: 500;
   display: flex;
   align-items: center;
+  cursor: pointer;
 `
 
 const ButtonLink = () => (

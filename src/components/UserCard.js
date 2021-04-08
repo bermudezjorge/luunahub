@@ -21,7 +21,7 @@ const Avatar = styled.img`
   border-radius: 50%;
 
   @media (min-width: 768px) {
-    width: 80%;
+    width: 80px;
   }
 `
 
@@ -35,12 +35,13 @@ const Name = styled.h3`
 `
 
 const ExternalLink = styled.a`
+  width: 50%;
   display: block;
   font-family: Poppins;
   font-weight: 500;
   color: #264c5a;
   font-size: 0.8rem;
-  margin: 0.3rem 0;
+  margin: 0.3rem auto;
   text-align: center;
 `
 

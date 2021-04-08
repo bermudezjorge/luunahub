@@ -2,6 +2,7 @@ import { useState } from 'react'
 import styled from 'styled-components'
 
 const Form = styled.form`
+  width: 300px;
   position: absolute;
   bottom: -20px;
   transition: 0.3s all ease;
@@ -9,10 +10,14 @@ const Form = styled.form`
   &:focus-within {
     bottom: -15px;
   }
+
+  @media (min-width: 768px) {
+    width: 500px;
+  }
 `
 
 const Container = styled.label`
-  width: 80%
+  width: 100%;
   height: 50px;
   background: #fff;
   box-shadow: 0px 3px 25px -7px #2191b9d4;
@@ -27,9 +32,14 @@ const Container = styled.label`
     box-shadow: 0px 7px 20px -5px #2191b9d4;
     opacity: 1;
   }
+
+  @media (min-width: 768px) {
+    height: 70px;
+  }
 `
 
 const Input = styled.input`
+  width: 100%;
   height: 100%;
   font-family: Poppins;
   color: ${({theme}) => theme.primaryColor};
@@ -39,7 +49,6 @@ const Input = styled.input`
 `
 
 const Button = styled.button`
-  height: 100%;
   font-family: Poppins;
   background-color: ${({theme}) => theme.primaryColor};
   color: #fff;
@@ -47,6 +56,11 @@ const Button = styled.button`
   border-radius: 10rem;
   border: none;
   padding: 0.3rem 1rem;
+  cursor: pointer;
+
+  @media (min-width: 768px) {
+    padding: 0.5rem 1.3rem;
+  }
 `
 
 const ButtonIcon = styled.button`
@@ -63,6 +77,7 @@ const ButtonIcon = styled.button`
   border: none;
   padding: 0.3rem 1rem;
   margin-left: 0.3rem;
+  cursor: pointer;
 `
 
 const Icon = styled.img`
