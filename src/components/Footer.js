@@ -15,11 +15,11 @@ const Container = styled.footer`
 const Text = styled.h4`
   font-family: Poppins;
   color: gray;
-  font-size: 3rem;
+  font-size: 1.2rem;
   text-align: center;
 
   @media (min-width: 768px) {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 `
 
